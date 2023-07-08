@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Welcome to CS157A team4 group project</title>
+</head>
+<body>
+<%-- write action and method later--%>
+<form action="" method=""> 
+User ID：<input type="text" name="loginId" required><br>
+Password：<input type="password" name="pass" required><br>
+<input type="submit" value="Login"><br>
+</form>
+<p>
+or create new account <br>
+<a href="register.jsp"><button>register</button></a>
+</p>
+</body>
+</html>

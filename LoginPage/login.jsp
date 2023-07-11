@@ -33,6 +33,7 @@
           request.setAttribute("userid", userid);
           RequestDispatcher dispatcher = request.getRequestDispatcher("tenant_or_landlord.jsp");
           dispatcher.forward(request, response);
+          
         } else {
           out.println("Re-enter");
         }

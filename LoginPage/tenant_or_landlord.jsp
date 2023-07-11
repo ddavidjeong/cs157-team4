@@ -16,7 +16,7 @@
     <% 
       out.println("If you are Landlord, please click Landlord Button<br/><br/>");
     %>
-    <form action="">
+    <form action="adding_room.jsp">
       <input type="submit" value="Landlord">
     </form>
   </body>

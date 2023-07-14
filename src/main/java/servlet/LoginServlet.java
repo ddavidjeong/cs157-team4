@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import object.userBean;
 import sql.login;
@@ -51,6 +52,8 @@ public class LoginServlet extends HttpServlet {
 		if(userInfo.isLogin_flag()) {
 			//if login successfully, go to tenant or landlord page
 			System.out.println("Login Sucessfully");
+			HttpSession session = request.getSession(); //pass the userInfo class to next page
+			session.setAttribute("userInfo", userInfo);
 			RequestDispatcher dispatcher =
 					request.getRequestDispatcher("WEB-INF/loginPage/tenant_or_landlord.jsp");
 			dispatcher.forward(request, response);
@@ -62,7 +65,6 @@ public class LoginServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 	}
-	
 	
 
 }

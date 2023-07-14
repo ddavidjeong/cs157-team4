@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>This is the Login Page</h1>
-    <form method="post" action="/Team4GroupProject/LoginServlet">
+    <form method="post" action="<%=request.getContextPath() %>/LoginServlet">
       <label for="userid">userid:</label>
       <input type="number" id="userid" name="userid" required><br/><br/>
       

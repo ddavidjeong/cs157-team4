@@ -54,6 +54,7 @@ CREATE TABLE `listings` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `number_people` int NOT NULL,
+  `booking` tinyint NOT NULL,
   PRIMARY KEY (`listing_id`),
   KEY `landlord_id_idx` (`landlord_id`),
   CONSTRAINT `landlord_id` FOREIGN KEY (`landlord_id`) REFERENCES `users` (`landlord_id`)
@@ -66,7 +67,7 @@ CREATE TABLE `listings` (
 
 LOCK TABLES `listings` WRITE;
 /*!40000 ALTER TABLE `listings` DISABLE KEYS */;
-INSERT INTO `listings` VALUES (1,1,'L4','2023-11-23','2023-11-25',4),(2,9,'L2','2023-08-10','2023-08-15',2),(3,5,'L3','2023-08-11','2023-08-13',1),(4,4,'L5','2023-11-05','2023-11-09',4),(5,10,'L1','2023-09-18','2023-09-19',4),(6,8,'L1','2023-08-03','2023-08-06',2),(7,5,'L3','2023-10-10','2023-10-11',1),(8,3,'L6','2023-11-16','2023-11-19',2),(9,7,'L2','2023-09-26','2023-09-27',1),(10,6,'L1','2023-09-08','2023-09-09',2);
+INSERT INTO `listings` VALUES (1,1,'L4','2023-11-23','2023-11-25',4,0),(2,9,'L2','2023-08-10','2023-08-15',2,0),(3,5,'L3','2023-08-11','2023-08-13',1,0),(4,4,'L5','2023-11-05','2023-11-09',4,0),(5,10,'L1','2023-09-18','2023-09-19',4,0),(6,8,'L1','2023-08-03','2023-08-06',2,0),(7,5,'L3','2023-10-10','2023-10-11',1,0),(8,3,'L6','2023-11-16','2023-11-19',2,0),(9,7,'L2','2023-09-26','2023-09-27',1,0),(10,6,'L1','2023-09-08','2023-09-09',2,0);
 /*!40000 ALTER TABLE `listings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +154,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'abc@gmail.com','Tina','Smith',NULL,'L1','T1'),(2,'def@gmail.com','Mike','Lee',1,'L2','T2'),(3,'ghi@gmail.com','Jake','Brown',NULL,'L3','T3'),(4,'jkl@gmail.com','Jeniffer','Potter',NULL,'L4','T4'),(5,'mno@gmail.com','Kevin','Taylor',2,'L5','T5'),(6,'pqr@gmail.com','John','Anderson',3,'L6','T6');
+INSERT INTO `users` VALUES (1,'abc@gmail.com','Tina','Smith','L1','T1',NULL),(2,'def@gmail.com','Mike','Lee','L2','T2',1),(3,'ghi@gmail.com','Jake','Brown','L3','T3',NULL),(4,'jkl@gmail.com','Jeniffer','Potter','L4','T4',NULL),(5,'mno@gmail.com','Kevin','Taylor','L5','T5',2),(6,'pqr@gmail.com','John','Anderson','L6','T6',3);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -166,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-13 11:07:08
+-- Dump completed on 2023-07-13 17:53:14

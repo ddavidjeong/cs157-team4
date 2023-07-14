@@ -19,6 +19,9 @@
     <form action="adding_room.jsp">
       <input type="submit" value="Landlord">
     </form>
+
+    <p>you can check your profile here
+    <a href="<%=request.getContextPath() %>/profileServlet"><button>Profile page</button> </a>
+    </p>
   </body>
 </html>
-

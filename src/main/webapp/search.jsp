@@ -25,6 +25,7 @@
         <br><br>
         
         <input type="submit" value="Submit">
+        <a href="tenant_or_landlord.jsp" target="_blank"><button type="button">Back</button></a><br/><br/>
     </form>
 </body>
 </html>

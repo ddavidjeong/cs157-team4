@@ -23,6 +23,7 @@
       <a href="address.jsp" target="_blank"><button type="button">Address id refer id you don't know</button></a><br/><br/>
       
       <input type="submit" value="submit">
+      <a href="tenant_or_landlord.jsp" target="_blank"><button type="button">Back</button></a><br/><br/>
     </form>
     
 

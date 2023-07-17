@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/loginPage/login.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -55,13 +55,13 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession(); //pass the userInfo class to next page
 			session.setAttribute("userInfo", userInfo);
 			RequestDispatcher dispatcher =
-					request.getRequestDispatcher("WEB-INF/loginPage/tenant_or_landlord.jsp");
+					request.getRequestDispatcher("tenant_or_landlord.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			// if login fail, go login page again
 			System.out.println("Login Failed");
 			RequestDispatcher dispatcher =
-					request.getRequestDispatcher("WEB-INF/loginPage/login.jsp");
+					request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

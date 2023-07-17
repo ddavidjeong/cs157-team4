@@ -8,12 +8,13 @@
     
     <table border="1">
       <tr>
-        <td>Room_id</td>
-        <td>size</td>
-        <td>Type</td>
+        <td>Address_id</td>
+        <td>state</td>
+        <td>zip code</td>
    </tr>
+   <a href="add_property.jsp" target="_blank"><button type="button">Back to add property</button></a><br/><br/>
     <% 
-     String db = "lease";
+     String db = "shortterm_release";
         String user; // assumes database name is the same as username
           user = "root";
         String password = "Sheep88517565";
@@ -21,10 +22,10 @@
             
             java.sql.Connection con; 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false",user, password);
-            out.println("The Available room list show below"+"<br/><br/>");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shortterm_release?autoReconnect=true&useSSL=false",user, password);
+            out.println("Address id"+"<br/><br/>");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM room");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM address");
             
             while (rs.next()) {
                 out.println("<tr>"+"<td>"+rs.getInt(1)+"</td>" + "<td>" + rs.getString(2) + "</td>" + "<td>"+rs.getString(3)+"</td>"+"</tr>");
@@ -36,5 +37,6 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
+    
   </body>
 </html>

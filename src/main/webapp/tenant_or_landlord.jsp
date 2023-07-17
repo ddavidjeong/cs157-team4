@@ -9,14 +9,14 @@
     <% 
       out.println("If you are Tenant, Please click Tenant Button<br/><br/>");
     %>
-    <form action="">
+    <form action="search.jsp">
       <input type="submit" value="Tenant">
     </form>
     
     <% 
       out.println("If you are Landlord, please click Landlord Button<br/><br/>");
     %>
-    <form action="adding_room.jsp">
+    <form action="add_property.jsp">
       <input type="submit" value="Landlord">
     </form>
 

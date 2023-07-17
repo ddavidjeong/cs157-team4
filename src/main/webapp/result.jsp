@@ -40,7 +40,7 @@
                     + "FROM shortterm_release.listings a "
                     + "LEFT JOIN shortterm_release.property b ON a.property_id = b.property_id "
                     + "LEFT JOIN shortterm_release.address c ON b.address_id = c.address_id "
-                    + "WHERE a.start_date >= ? AND a.end_date <= ?";
+                    + "WHERE a.start_date >= ? AND a.end_date <= ? AND c.state = ?";
             
             // Establish database connection
             Class.forName("com.mysql.jdbc.Driver");
@@ -51,7 +51,7 @@
                 
                 stmt.setString(1, checkinDate);
                 stmt.setString(2, checkoutDate);
-                
+                stmt.setString(3, location);
                 // Execute SQL statement and get result
                 try (ResultSet rs = stmt.executeQuery()) {
                     while (rs.next()) {

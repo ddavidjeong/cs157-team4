@@ -12,28 +12,24 @@
 <title>'s Profile </title>
 </head>
 <body>
-		<div class="mx-auto text-center" style="width: 70%;">
-		<table class="table table-striped">
-		<thead>
-			 <tr>
-			 	<th scope="col">User ID</th>
-			 	<th scope="col">First Name</th>
-			 	<th scope="col">Last Name</th>
-			 	<th scope="col">Email Address</th>
-			 	<th scope="col">Tenant ID</th>
-			 	<th scope="col">Landlord ID</th>
-			 </tr>
-		</thead>
-		<tbody>			 
-			 <tr>
-			 	<td><%= userInfo.getUser_id() %></td>
-			 	<td><%= userInfo.getFirstName() %></td>
-			 	<td><%= userInfo.getLastName() %></td>
-			 	<td><%= userInfo.getEmailAddress() %></td>
-			 	<td><%= userInfo.getTenant_id() %></td>
-			 	<td><%= userInfo.getLandlord_id() %></td>
-			 </tr>
-		</tbody>
+<h1><%= userInfo.getFirstName() %>'s Profile</h1>
+		<table border="1">
+		<tr>
+      		<td>User ID</td>
+        	<td>First Name</td>
+        	<td>Last Name</td>
+        	<td>Email Address</td>
+        	<td>Tenant ID</td>
+        	<td>Landlord ID</td>
+        </tr>	 
+		<tr>
+	    	<td><%= userInfo.getUser_id() %></td>
+			<td><%= userInfo.getFirstName() %></td>
+			<td><%= userInfo.getLastName() %></td>
+			<td><%= userInfo.getEmailAddress() %></td>
+			<td><%= userInfo.getTenant_id() %></td>
+			<td><%= userInfo.getLandlord_id() %></td>
+		</tr>
 		</table>
 <p>		
 		Order History 

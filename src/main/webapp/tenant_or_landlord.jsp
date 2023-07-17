@@ -21,7 +21,7 @@
     </form>
 
     <p>you can check your profile here
-    <a href="<%=request.getContextPath() %>/profileServlet"><button>Profile page</button> </a>
+    <a href="loginPage/profile.jsp"><button>Profile page</button> </a>
     </p>
   </body>
 </html>

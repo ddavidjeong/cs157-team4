@@ -36,10 +36,13 @@
 		</tbody>
 		</table>
 <p>		
-		back to user type page <br>
-		<form action="/Team4GroupProject/profileServlet" method="post"> 
-		<input type="submit" value="back">
+		Order History 
+		<form method="post" action=order.jsp">
+		<input type="submit" value="next">
 		</form>
+		<br>
+		back to user type page
+		<a href= "tenant_or_landlord.jsp"><button>back</button></a>
 </p>
 </div>
 </body>

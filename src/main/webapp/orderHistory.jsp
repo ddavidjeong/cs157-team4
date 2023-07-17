@@ -10,8 +10,9 @@
 <title>Order History</title>
 </head>
 <body>
+<h1>Order History</h1>
 
-		<table border="1">
+	<table border="1">
       <tr>
       	<td>Order ID</td>
         <td>Start Date</td>

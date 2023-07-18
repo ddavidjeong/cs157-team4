@@ -26,7 +26,7 @@
         try {
             String db = "shortterm_release";
             String user = "root";
-            String password = "Hazuki_0824";
+            String password = "Sheep88517565";
             String order_sql = "select * from shortterm_release.orders "
             		+ "join shortterm_release.listings using (listing_id) "
     				+ "join property using (property_id) " 
@@ -61,5 +61,6 @@
             out.println("ClassNotFoundException caught: " + e.getMessage());
         }
     %>
+    <a href= "profile.jsp"><button>back</button></a>
 </body>
 </html>

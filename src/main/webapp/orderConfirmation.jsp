@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="object.optionBean" %>
+<%@ page import="object.userBean" %>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,15 +11,61 @@
 <title>order Confirmation</title>
 </head>
 <body>
-	<h2>Order Confirmed</h2>
-	<h3>Thank you for booking!</h3>
-	You successfully booking room
-	
-	<p>Logout
-    	<a href="MainPage.jsp"><button>logout</button> </a>
-    </p>
-    <p>Go back to choosing role page
-    	<a href="tenant_or_landlord.jsp"><button>back</button> </a>
-    </p>
+    <%
+    	userBean userInfo = (userBean)session.getAttribute("userInfo");
+		optionBean order = (optionBean)session.getAttribute("order");
+    	String db = "shortterm_release";
+    	String user = "root";
+    	String password = "Hazuki_0824";
+    	
+    	try {
+        	Class.forName("com.mysql.jdbc.Driver");
+        	String url = "jdbc:mysql://localhost:3306/shortterm_release?autoReconnect=true&useSSL=false";
+        	try (Connection con = DriverManager.getConnection(url, user, password)) {
+          		String query = "INSERT INTO orders (order_id, tenant_id, listing_id) VALUES (?, ?, ?)";
+          		String update = "UPDATE listings set booking = '1' where listing_id = ?";
+          		PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+          		PreparedStatement stmtUpdate = con.prepareStatement(update, Statement.RETURN_GENERATED_KEYS);
+          
+          		ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM orders");
+          		int id = 0;
+          		if (rs.next()) {
+              		id = rs.getInt(1) + 1;
+          		}
+          		rs.close();
+          
+          		stmt.setInt(1, id);
+          		stmt.setString(2, userInfo.getTenant_id());
+          		stmt.setInt(3, order.getListing_ID());
+          		stmtUpdate.setInt(1, order.getListing_ID());
+          
+          		int rowsAffected = stmt.executeUpdate();
+          		request.setAttribute("booking", rowsAffected);
+      			if (rowsAffected > 0) {
+        			stmtUpdate.executeUpdate();
+       			}
+        		}
+      		} catch (SQLException e) {
+        	out.println("SQLException caught: " + e.getMessage());
+      		} catch (ClassNotFoundException e) {
+        	out.println("ClassNotFoundException caught: " + e.getMessage());
+      		}
+     %>
+     <c:choose>
+     <c:when test="${booking > 0}">
+     	<h2>Order Confirmed</h2>
+     	<h3>Thank you for booking!</h3>
+     	You successfully booking the room
+     	<p>Logout
+    		<a href="MainPage.jsp"><button>logout</button> </a>
+    	</p>
+    	<p>Go back to choosing role page
+    		<a href="tenant_or_landlord.jsp"><button>back</button> </a>
+    	</p>
+    </c:when>
+    <c:otherwise>
+    	<h2>Error during process</h2>
+    </c:otherwise>
+    </c:choose>
 </body>
 </html>

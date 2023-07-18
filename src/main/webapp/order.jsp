@@ -15,7 +15,7 @@
 <title>Booking Room</title>
 </head>
 <body>
-<h1>Are you booking this room you?</h1>
+<h1>Are you booking this room?</h1>
 <table border="1">
       <tr>
         <td>start date</td>

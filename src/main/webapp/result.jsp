@@ -61,7 +61,7 @@
                     + "FROM shortterm_release.listings a "
                     + "LEFT JOIN shortterm_release.property b ON a.property_id = b.property_id "
                     + "LEFT JOIN shortterm_release.address c ON b.address_id = c.address_id "
-                    + "WHERE a.start_date >= ? AND a.end_date <= ? AND c.state = ?";
+                    + "WHERE a.start_date >= ? AND a.end_date <= ? AND c.state = ? AND a.booking = 0";
             
             // Establish database connection
             Class.forName("com.mysql.jdbc.Driver");

@@ -13,9 +13,25 @@
     <h1>Search Result</h1>
     
     <%-- Retrieve the form data from the URL parameters --%>
-    <% String location = request.getParameter("location"); %>
-    <% String checkinDate = request.getParameter("checkinDate"); %>
-    <% String checkoutDate = request.getParameter("checkoutDate"); %>
+    <% 
+    String location;
+    String checkinDate;
+    String checkoutDate;
+    if(request.getParameter("location")==null){
+    	location = (String)session.getAttribute("location"); 
+        checkinDate = (String)session.getAttribute("checkinDate");
+        checkoutDate = (String)session.getAttribute("checkoutDate"); 
+    }
+    else{
+    	session.setAttribute("location", request.getParameter("location"));
+    	session.setAttribute("checkinDate", request.getParameter("checkinDate"));
+    	session.setAttribute("checkoutDate", request.getParameter("checkoutDate"));
+    	location = (String)session.getAttribute("location"); 
+    	checkinDate = (String)session.getAttribute("checkinDate");
+    	checkoutDate = (String)session.getAttribute("checkoutDate"); 
+    }
+    %>
+
     
     <%-- Display the user's input --%>
     <p>Location: <%= location %></p>

@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>'s Profile </title>
+<title><%= userInfo.getFirstName() %>'s Profile </title>
 </head>
 <body>
 <h1><%= userInfo.getFirstName() %>'s Profile</h1>
@@ -33,7 +33,7 @@
 		</table>
 <p>		
 		Order History 
-		<form method="post" action=order.jsp">
+		<form method="post" action="orderHistory.jsp">
 		<input type="submit" value="next">
 		</form>
 		<br>

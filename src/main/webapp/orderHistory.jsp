@@ -61,6 +61,9 @@
             out.println("ClassNotFoundException caught: " + e.getMessage());
         }
     %>
-    <a href= "profile.jsp"><button>back</button></a>
+    <p>
+    Go back to profile page
+    <a href="profile.jsp"><button>back</button> </a>
+    </p>
 </body>
 </html>

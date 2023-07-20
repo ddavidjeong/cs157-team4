@@ -51,13 +51,13 @@
         	out.println("ClassNotFoundException caught: " + e.getMessage());
       		}
      %>
-     <c:choose>
+<c:choose>
      <c:when test="${booking > 0}">
      	<h2>Order Confirmed</h2>
      	<h3>Thank you for booking!</h3>
      	You successfully booking the room
-     	<p>Logout
-    		<a href="MainPage.jsp"><button>logout</button> </a>
+     	<p>Search new room
+    		<a href="search.jsp"><button>logout</button> </a>
     	</p>
     	<p>Go back to choosing role page
     		<a href="tenant_or_landlord.jsp"><button>back</button> </a>

@@ -23,5 +23,9 @@
     <p>you can check your profile here
     <a href="profile.jsp"><button>Profile page</button> </a>
     </p>
+
+    <p>Logout
+    <a href="MainPage.jsp"><button>logout</button> </a>
+    </p>
   </body>
 </html>

@@ -24,17 +24,17 @@
 
 <% 
         try {
-            String db = "shortterm_release";
+            String db = "lease";
             String user = "root";
             String password = "Sheep88517565";
-            String order_sql = "select * from shortterm_release.orders "
-            		+ "join shortterm_release.listings using (listing_id) "
+            String order_sql = "select * from orders "
+            		+ "join listings using (listing_id) "
     				+ "join property using (property_id) " 
     						+ "where tenant_id = ?";
             
             // Establish database connection
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/shortterm_release?autoReconnect=true&useSSL=false";
+            String connectionURL = "jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false";
             
             try (Connection con = DriverManager.getConnection(connectionURL, user, password);
                  PreparedStatement stmt = con.prepareStatement(order_sql)) {
@@ -49,7 +49,7 @@
         				+ "<td>" + rs.getDate("start_date") + "</td>"
         				+ "<td>" + rs.getDate("end_date") + "</td>"
         				+ "<td>" + rs.getString("type") + "</td>"
-        				+ "<td>" + rs.getInt("number_people") + "</td>"
+        				+ "<td>" + rs.getInt("max_headcount") + "</td>"
         				+ "<td>" + rs.getInt("price") + "</td>");
         			
         			}

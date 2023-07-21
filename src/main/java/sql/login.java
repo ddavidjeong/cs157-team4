@@ -25,8 +25,8 @@ public class login {
 
 		// connect to database
 	    String user = "root";
-	    String password = "Hazuki_0824";
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/shortterm_release", user, password)) {
+	    String password = "pass";
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/lease", user, password)) {
 			PreparedStatement stmt= conn.prepareStatement(login_sql);
 
 			stmt.setString(1, user_id);

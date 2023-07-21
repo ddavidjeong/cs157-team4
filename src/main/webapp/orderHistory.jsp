@@ -24,9 +24,8 @@
 
 <% 
         try {
-            String db = "lease";
             String user = "root";
-            String password = "Sheep88517565";
+            String password = "pass";
             String order_sql = "select * from orders "
             		+ "join listings using (listing_id) "
     				+ "join property using (property_id) " 

@@ -14,13 +14,13 @@
     <%
     	userBean userInfo = (userBean)session.getAttribute("userInfo");
 		optionBean order = (optionBean)session.getAttribute("order");
-    	String db = "shortterm_release";
+    	String db = "lease";
     	String user = "root";
-    	String password = "Hazuki_0824";
+    	String password = "pass";
     	
     	try {
         	Class.forName("com.mysql.jdbc.Driver");
-        	String url = "jdbc:mysql://localhost:3306/shortterm_release?autoReconnect=true&useSSL=false";
+        	String url = "jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false";
         	try (Connection con = DriverManager.getConnection(url, user, password)) {
           		String query = "INSERT INTO orders (order_id, tenant_id, listing_id) VALUES (?, ?, ?)";
           		String update = "UPDATE listings set booking = '1' where listing_id = ?";

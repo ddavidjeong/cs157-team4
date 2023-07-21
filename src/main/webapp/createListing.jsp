@@ -19,9 +19,8 @@
       String start = request.getParameter("start");
       String end = request.getParameter("end");
       String numPeople = request.getParameter("num");
-      String db = "lease";
       String user = "root";
-      String password = "Hazuki_0824";
+      String password = "pass";
       
       userBean userInfo = (userBean)session.getAttribute("userInfo");
       String landlordID = userInfo.getLandlord_id();

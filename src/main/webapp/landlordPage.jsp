@@ -15,5 +15,9 @@
 		<p>Create new listing
     		<a href="chooseProperty.jsp"><button>create</button> </a>
     	</p>
+
+    	<p>Modify/Update exist listings
+    		<a href="modifyListing.jsp"><button>modify</button></a>
+    	</p>
 </body>
 </html>

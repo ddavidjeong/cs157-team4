@@ -54,13 +54,13 @@
       </tr>
     <% 
         try {
-            String db = "shortterm_release";
+            String db = "lease";
             String user = "root";
-            String password = "Hazuki_0824";
-            String login_sql = "SELECT a.start_date, a.end_date, a.number_people, b.bd_count, b.br_count, b.price, c.state, a.listing_id "
-                    + "FROM shortterm_release.listings a "
-                    + "LEFT JOIN shortterm_release.property b ON a.property_id = b.property_id "
-                    + "LEFT JOIN shortterm_release.address c ON b.address_id = c.address_id "
+            String password = "pass";
+            String login_sql = "SELECT a.start_date, a.end_date, a.max_headcount, b.bd_count, b.br_count, b.price, c.state, a.listing_id "
+                    + "FROM listings a "
+                    + "LEFT JOIN property b ON a.property_id = b.property_id "
+                    + "LEFT JOIN address c ON b.address_id = c.address_id "
                     + "WHERE a.start_date >= ? AND a.end_date <= ? AND c.state = ? AND a.booking = 0";
             
             // Establish database connection

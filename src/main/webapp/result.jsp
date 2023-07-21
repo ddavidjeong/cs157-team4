@@ -113,7 +113,11 @@
             out.println("ClassNotFoundException caught: " + e.getMessage());
         }
     %>
-    
+
+    *There is no room fits to your prefer if nothing on the table. <br>
+    Back to search page
+    <a href="search.jsp"><button>back</button></a> <br><be>
+
 	<form action="order.jsp" method="post">
 	Select one room for booking
     <select name="room" name="room">

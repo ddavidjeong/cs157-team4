@@ -26,7 +26,7 @@
      String Email = request.getParameter("Email");
      String fn = request.getParameter("FN");
      String ln = request.getParameter("LN");
-     String db = "shortterm_release";
+     String db = "lease";
         String user; // assumes database name is the same as username
         user = "root";
         String password = "Sheep88517565";
@@ -34,7 +34,7 @@
             
             java.sql.Connection con; 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shortterm_release?autoReconnect=true&useSSL=false",user, password);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false",user, password);
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE user_id = "+userid);
             if(rs.next()){

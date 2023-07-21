@@ -51,9 +51,8 @@
 
  	<% 
         try {
-            String db = "lease";
             String user = "root";
-            String password = "Hazuki_0824";
+            String password = "pass";
             String login_sql = "SELECT * FROM property join own using (property_id) " 
             		+ "join address using (address_id) WHERE landlord_id = ?";
             

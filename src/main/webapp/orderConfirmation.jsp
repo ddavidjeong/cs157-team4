@@ -23,7 +23,7 @@
         	String url = "jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false";
         	try (Connection con = DriverManager.getConnection(url, user, password)) {
           		String query = "INSERT INTO orders (order_id, tenant_id, listing_id) VALUES (?, ?, ?)";
-          		String update = "UPDATE listings set booking = '1' where listing_id = ?";
+          		String update = "UPDATE listings set booking_status = '1' where listing_id = ?";
           		PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
           		PreparedStatement stmtUpdate = con.prepareStatement(update, Statement.RETURN_GENERATED_KEYS);
           

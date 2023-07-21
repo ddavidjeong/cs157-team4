@@ -14,7 +14,6 @@
     <%
     	userBean userInfo = (userBean)session.getAttribute("userInfo");
 		optionBean order = (optionBean)session.getAttribute("order");
-    	String db = "lease";
     	String user = "root";
     	String password = "pass";
     	

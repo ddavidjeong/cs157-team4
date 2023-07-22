@@ -20,7 +20,7 @@
       String end = request.getParameter("end");
       String numPeople = request.getParameter("num");
       String user = "root";
-      String password = "Hazuki_0824";
+      String password = "pass";
       
       userBean userInfo = (userBean)session.getAttribute("userInfo");
       int listingID = 0;

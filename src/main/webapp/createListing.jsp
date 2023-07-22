@@ -70,7 +70,7 @@
 		<c:when test="${affect > 0}">
 		<h2>Successfully created new listing</h2>
 		<p>Create new listing or add new property
-			<a href="addingOrCreating.jsp"><button>back</button> </a>
+			<a href="landlordPage.jsp"><button>back</button> </a>
 		</p>
 		<p>Go back to choosing role page
 			<a href="tenant_or_landlord.jsp"><button>back</button> </a>

@@ -10,14 +10,18 @@
 	<h2>Select your action</h2>	
 		<p>Add new property
     		<a href="add_property.jsp"><button>add</button> </a>
-    	</p>
+    	</p> 
     	
 		<p>Create new listing
     		<a href="chooseProperty.jsp"><button>create</button> </a>
-    	</p>
-
+    	</p> 
+    	
     	<p>Modify/Update exist listings
-    		<a href="modifyListing.jsp"><button>modify</button></a>
+    		<a href="chooseListing.jsp"><button>modify</button></a>
+    	</p>
+    	
+    	<p>Back to choosing role page
+    		<a href="tenant_or_landlord.jsp"><button>back</button></a>
     	</p>
 </body>
 </html>

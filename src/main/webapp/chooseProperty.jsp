@@ -100,6 +100,6 @@
     %>
     </table><br><br>
     Back to select page
-     <a href="addingOrCreating.jsp"><button>Back</button></a><br/><br/>
+     <a href="landlordPage.jsp"><button>Back</button></a><br/><br/>
 </body>
 </html>

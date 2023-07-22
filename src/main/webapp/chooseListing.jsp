@@ -45,7 +45,7 @@
  	<% 
         try {
             String user = "root";
-            String password = "Hazuki_0824";
+            String password = "pass";
             String listing_sql = "SELECT * FROM listings join property using (property_id) " 
             		+ "join address using (address_id) WHERE landlord_id = ?";
             

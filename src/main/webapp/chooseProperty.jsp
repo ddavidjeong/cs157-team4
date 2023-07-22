@@ -27,14 +27,6 @@
       <input type="text"name="num" required><br><br>
       
       <input type="submit" value="submit"><br><br>
-      
-		Select one room for creating new listing
-    	<select name="property" name="property">
-    		<c:forEach items="${propertyOption}" var="property">
-            	<option value="${property.option}">${property.option}</option>
-        	</c:forEach>
-   	 	</select>  
-    </form>
     
 	<table border="1">
       <tr>
@@ -98,6 +90,14 @@
             out.println("ClassNotFoundException caught: " + e.getMessage());
         }
     %>
+
+	Select one room for creating new listing
+    	<select name="property" name="property">
+    		<c:forEach items="${propertyOption}" var="property">
+            		<option value="${property.option}">${property.option}</option>
+        	</c:forEach>
+   	 </select>  
+    </form>
     </table><br><br>
     Back to select page
      <a href="landlordPage.jsp"><button>Back</button></a><br/><br/>

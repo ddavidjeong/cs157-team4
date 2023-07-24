@@ -59,7 +59,7 @@
 	<c:choose>
 		<c:when test="${affect > 0}">
 		<h2>Successfully created new listing</h2>
-		<p>Create new listing or add new property
+		<p>Go back to landlord page
 			<a href="landlordPage.jsp"><button>back</button> </a>
 		</p>
 		<p>Go back to choosing role page

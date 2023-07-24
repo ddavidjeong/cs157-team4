@@ -4,15 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Choose adding property or creating listing</title>
+<title>Landlord Page</title>
 </head>
 <body>
 	<h2>Select your action</h2>	
-		<p>Add new property
+	<h3>Property</h3>
+	<p>Add new property
     		<a href="add_property.jsp"><button>add</button> </a>
     	</p> 
     	
-		<p>Create new listing
+    	<p>Modify/Update exist property
+    		<a href="propertyForUpdate.jsp"><button>modify</button></a>
+    	</p>
+    
+    	<h3>Listing</h3>
+	<p>Create new listing
     		<a href="chooseProperty.jsp"><button>create</button> </a>
     	</p> 
     	

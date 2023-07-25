@@ -20,5 +20,11 @@
     <form action="login.jsp">
       <input type="submit" value="Login">
     </form>
+    <% 
+      out.println("If you are a admin, please click Admin.<br/><br/>");
+    %>
+    <form action="admin.jsp">
+      <input type="submit" value="Admin">
+    </form>
   </body>
 </html>

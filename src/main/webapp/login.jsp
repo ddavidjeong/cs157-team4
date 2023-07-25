@@ -17,5 +17,8 @@
       <input type="submit" value="Login">
     </form>
 
+    <br><br>
+    Forgot user ID or email address?
+     <a href="identify.jsp" target="_blank"><button type="button">Back</button></a><br/><br/>
   </body>
 </html>

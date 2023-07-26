@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Modify/Update listings</title>
+<title>Modify/Update property</title>
 </head>
 <body>
 	<h2>Modify/Update exist listings</h2>

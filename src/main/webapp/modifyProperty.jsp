@@ -14,65 +14,78 @@
 <title>Modify/Update listings</title>
 </head>
 <body>
-<h2>Modify/Update exist listings</h2>
-    <%
-      int numBedRoom = Integer.parseInt(request.getParameter("numBedRoom"));
-      int numBath = Integer.parseInt(request.getParameter("numBath"));
-      String type = request.getParameter("type");
-      double price = Integer.parseInt(request.getParameter("price"));
-      String user = "root";
-      String password = "Hazuki_0824";
-      
-      userBean userInfo = (userBean)session.getAttribute("userInfo");
-      int propertyID = 0;
-      
-      for(propertyBean property: roomList) {
-    		 if (property.getOption() == num){
-    			 propertyID = property.getPropertyID();
-    		      break;
-    		 	}
-    		 }
-    	
-      try {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false";
-        
-        try (Connection con = DriverManager.getConnection(url, user, password)) {
-          String modifySql = "UPDATE property SET bd_count = ?, "
-        		  + "br_count = ?, type = ?, price = ? where property_id = ?";
-          PreparedStatement stmt = con.prepareStatement(modifySql, Statement.RETURN_GENERATED_KEYS);
-          
-          
-          stmt.setInt(1, numBedRoom);
-          stmt.setInt(2, numBath);
-          stmt.setString(3, type);
-          stmt.setDouble(4, price);
-          stmt.setInt(5, propertyID);
-          
-          int rowsAffected = stmt.executeUpdate();
-          request.setAttribute("affect", rowsAffected);
-        }
-		} catch (SQLException e) {
-  			out.println("SQLException caught: " + e.getMessage());
-		} catch (ClassNotFoundException e) {
-  			out.println("ClassNotFoundException caught: " + e.getMessage());
+	<h2>Modify/Update exist listings</h2>
+	<%
+	int numBedRoom = Integer.parseInt(request.getParameter("numBedRoom"));
+	int numBath = Integer.parseInt(request.getParameter("numBath"));
+	String type = request.getParameter("type");
+	double price = Integer.parseInt(request.getParameter("price"));
+	String user = "root";
+	String password = "Hazuki_0824";
+
+	userBean userInfo = (userBean) session.getAttribute("userInfo");
+	int propertyID = 0;
+
+	for (propertyBean property : roomList) {
+		if (property.getOption() == num) {
+			propertyID = property.getPropertyID();
+			break;
 		}
+	}
+
+	try {
+		java.sql.Connection con;
+		Class.forName("com.mysql.jdbc.Driver");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false", user,
+		password);
+		con.setAutoCommit(false);
+
+		try {
+			String modifySql = "UPDATE property SET bd_count = ?, "
+			+ "br_count = ?, type = ?, price = ? where property_id = ?";
+			PreparedStatement stmt = con.prepareStatement(modifySql, Statement.RETURN_GENERATED_KEYS);
+
+			stmt.setInt(1, numBedRoom);
+			stmt.setInt(2, numBath);
+			stmt.setString(3, type);
+			stmt.setDouble(4, price);
+			stmt.setInt(5, propertyID);
+
+			int rowsAffected = stmt.executeUpdate();
+			if (rowsAffected > 0) {
+				con.commit();
+			} else {
+				con.rollback();
+			}
+			request.setAttribute("affect", rowsAffected);
+		} catch (SQLException e) {
+			con.rollback();
+			out.println("SQLException caught: " + e.getMessage());
+		} finally {
+			con.setAutoCommit(true); // Reset the auto-commit to its default state
+		}
+		con.close();
+	} catch (ClassNotFoundException e) {
+		out.println("ClassNotFoundException caught: " + e.getMessage());
+	}
 	%>
 	<c:choose>
 		<c:when test="${affect > 0}">
-		<h2>Successfully created new listing</h2>
-		<p>Back to landlord page
-			<a href="landlordPage.jsp"><button>back</button> </a>
-		</p>
-		<p>Go back to choosing role page
-			<a href="tenant_or_landlord.jsp"><button>back</button> </a>
-		</p>
+			<h2>Successfully created new listing</h2>
+			<p>
+				Back to landlord page <a href="landlordPage.jsp"><button>back</button>
+				</a>
+			</p>
+			<p>
+				Go back to choosing role page <a href="tenant_or_landlord.jsp"><button>back</button>
+				</a>
+			</p>
 		</c:when>
-	<c:otherwise>
-		<h2>Error during process</h2>
+		<c:otherwise>
+			<h2>Error during process</h2>
 		Back to choosing property page
 		<a href="propertyForUpdate.jsp"><button>back</button></a>
-	</c:otherwise>
-</c:choose>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>

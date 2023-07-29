@@ -46,7 +46,7 @@
         try {
             String user = "root";
             String password = "pass";
-            String listing_sql = "SELECT * FROM listings join property using (property_id) " 
+            String listing_sql = "SELECT * FROM listings join property using (property_id) join lease using (listing_id)" 
             		+ "join address using (address_id) WHERE landlord_id = ? AND booking_status = 0";
             
             // Establish database connection

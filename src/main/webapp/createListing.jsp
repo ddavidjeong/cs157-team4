@@ -41,24 +41,29 @@
 		con.setAutoCommit(false);
 
 		try {
-			String createSql = "INSERT INTO listings (listing_id, property_id, landlord_id, start_date, "
-			+ "end_date, max_headcount, booking_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+			String createSql = "INSERT INTO listings (listing_id, property_id,  start_date, "
+				+ "end_date, max_headcount, booking_status) VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement stmt = con.prepareStatement(createSql, Statement.RETURN_GENERATED_KEYS);
 
+			String leaseSql = "INSERT INTO lease(landlord_id, listing_id) VALUES (?, ?)";
+			PreparedStatement stmtLease = con.prepareStatement(leaseSql, Statement.RETURN_GENERATED_KEYS);
+			
 			ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM listings");
 			int id = 0;
 			if (rs.next()) {
-		id = rs.getInt(1);
+				id = rs.getInt(1);
 			}
 			rs.close();
 
 			stmt.setInt(1, id + 1);
 			stmt.setInt(2, propertyID);
-			stmt.setString(3, landlordID);
-			stmt.setString(4, start);
-			stmt.setString(5, end);
-			stmt.setString(6, numPeople);
-			stmt.setInt(7, 0);
+			stmt.setString(3, start);
+			stmt.setString(4, end);
+			stmt.setString(5, numPeople);
+			stmt.setInt(6, 0);
+			
+			stmtLease.setString(1, landlordID);
+			stmtLease.setInt(2, id + 1);
 
 			int rowsAffected = stmt.executeUpdate();
 			if (rowsAffected > 0) {

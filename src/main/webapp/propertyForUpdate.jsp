@@ -11,7 +11,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Modify/Update property</title>
+	<title>Modify/Update property</title>
+	<style>
+		tr:nth-child(even) {background-color: #f2f2f2;}
+	</style>
 </head>
 <body>
 	<h2>Modify/Update property</h2>

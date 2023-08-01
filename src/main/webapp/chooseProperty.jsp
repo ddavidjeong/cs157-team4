@@ -11,7 +11,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Create new listing</title>
+	<title>Create new listing</title>
+	<style>
+		tr:nth-child(even) {background-color: #f2f2f2;}
+	</style>
 </head>
 <body>
 	<h2>Create new listing</h2>

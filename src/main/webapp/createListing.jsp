@@ -68,6 +68,7 @@
 			int rowsAffected = stmt.executeUpdate();
 			if (rowsAffected > 0) {
 				con.commit();
+				stmtLease.executeUpdate();
 			} else {
 				con.rollback();
 			}

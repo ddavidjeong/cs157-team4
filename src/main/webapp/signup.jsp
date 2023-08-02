@@ -41,11 +41,18 @@
               out.println("The user already exist<br/><br/>");
               out.println("Please Click Login Button");
             }else{
-              PreparedStatement stmt1= con.prepareStatement("INSERT INTO users (user_id, email_address,first_name,last_name) VALUES (?, ?, ?, ?)");
+    			ResultSet num = stmt.executeQuery("SELECT COUNT(*) FROM users");
+    			int id = 0;
+    			if (num.next()) {
+    				id = num.getInt(1) + 1;
+    			}
+              PreparedStatement stmt1= con.prepareStatement("INSERT INTO users (user_id, email_address,first_name,last_name, landlord_id, tenant_id) VALUES (?, ?, ?, ?, ?, ?)");
               stmt1.setString(1, userid);
               stmt1.setString(2, Email);
               stmt1.setString(3, fn);
               stmt1.setString(4, ln);
+              stmt1.setString(5, "L" + id);
+              stmt1.setString(6, "T" + id);
               stmt1.executeUpdate();
               out.println("Successful sign in<br/><br/>");
               out.println("Please Click Login Button");

@@ -67,7 +67,7 @@
 			<h3>Thank you for booking!</h3>
      	You successfully booking the room
      	<p>
-				Search new room <a href="search.jsp"><button>logout</button> </a>
+				Search new room <a href="search.jsp"><button>search</button> </a>
 			</p>
 			<p>
 				Go back to choosing role page <a href="tenant_or_landlord.jsp"><button>back</button>

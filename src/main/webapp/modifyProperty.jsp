@@ -21,7 +21,7 @@
 	String type = request.getParameter("type");
 	double price = Integer.parseInt(request.getParameter("price"));
 	String user = "root";
-	String password = "Hazuki_0824";
+	String password = "pass";
 
 	userBean userInfo = (userBean) session.getAttribute("userInfo");
 	int propertyID = 0;

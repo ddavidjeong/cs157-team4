@@ -23,7 +23,7 @@
 	userBean userInfo = (userBean) session.getAttribute("userInfo");
 	String landlordID = userInfo.getLandlord_id();
 	String user = "root";
-	String password = "Hazuki_0824";
+	String password = "pass";
 
 	try {
 		java.sql.Connection con;

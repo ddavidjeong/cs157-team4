@@ -137,6 +137,7 @@ CREATE TABLE `orders` (
   `order_id` int NOT NULL,
   `listing_id` int NOT NULL,
   `tenant_id` varchar(45) NOT NULL,
+  `pay_status` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -147,7 +148,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,4,'T1'),(2,2,'T2'),(3,3,'T6'),(4,5,'T1'),(5,6,'T1'),(6,8,'T1'),(7,71,'T1'),(8,79,'T2'),(9,19,'T2'),(10,89,'T3'),(11,25,'T3'),(12,39,'T10'),(13,21,'T10'),(14,60,'T4'),(15,15,'T5');
+INSERT INTO `orders` VALUES (1,4,'T1',0),(2,2,'T2',0),(3,3,'T6',0),(4,5,'T1',0),(5,6,'T1',0),(6,8,'T1',0),(7,71,'T1',0),(8,79,'T2',0),(9,19,'T2',0),(10,89,'T3',0),(11,25,'T3',0),(12,39,'T10',0),(13,21,'T10',0),(14,60,'T4',0),(15,15,'T5',0),(16,30,'T1',0);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 

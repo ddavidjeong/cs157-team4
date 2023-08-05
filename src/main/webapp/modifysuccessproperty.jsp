@@ -71,7 +71,7 @@ try {
         }
         if(!br_count.equals("")){
         	PreparedStatement pstmtbr_count = con.prepareStatement(cm2);
-        	pstmtbr_count.setInt(1, Integer.parseInt(bd_count));
+        	pstmtbr_count.setInt(1, Integer.parseInt(br_count));
         	pstmtbr_count.setInt(2, Integer.parseInt(property_id));
         	rowsAffected=pstmtbr_count.executeUpdate();
         	pstmtbr_count.close();

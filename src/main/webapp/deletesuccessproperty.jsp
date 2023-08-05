@@ -35,13 +35,13 @@
 <h1>Deletion Status</h1>
 
 <%
-String list_id = request.getParameter("listingid");
+String property_id = request.getParameter("propertyid");
 String db = "lease";
 String user = "root";
 String password = "Sheep88517565";
 //String cm1 = "DELETE FROM lease.create WHERE listing_id=?;";
-String cm2 = "DELETE FROM lease.listings WHERE listing_id=? AND booking_status=0;";
-//String cm3 = "DELETE FROM lease.property WHERE property_id=?;";
+//String cm2 = "DELETE FROM lease.listings WHERE listing_id=? AND booking_status=0;";
+String cm3 = "DELETE FROM lease.property WHERE property_id=?;";
 //String cm4 = "DELETE FROM lease.release WHERE listing_id=?;";
 
 try {
@@ -70,10 +70,10 @@ try {
         pstmtrelease.setInt(1, Integer.parseInt(list_id));
         pstmtrelease.executeUpdate();
         pstmtrelease.close(); */
-        PreparedStatement pstmtListing = con.prepareStatement(cm2);
-        pstmtListing.setInt(1, Integer.parseInt(list_id));
-        rowsAffected = pstmtListing.executeUpdate();
-        pstmtListing.close();
+        PreparedStatement pstmtproperty = con.prepareStatement(cm3);
+        pstmtproperty.setInt(1, Integer.parseInt(property_id));
+        rowsAffected = pstmtproperty.executeUpdate();
+        pstmtproperty.close();
         
         
         
@@ -81,14 +81,14 @@ try {
         if (rowsAffected > 0) {
             con.commit(); // Commit the transaction if both deletions succeed
             %>
-            <p>Listing with ID <%= list_id %> and related records have been successfully deleted.</p>
-            <a href="listing.jsp">Go back to listing page</a>
+            <p>Property with ID <%= property_id %> and related records have been successfully deleted.</p>
+            <a href="admin.jsp">Go back to admin page</a>
             <%
         } else {
             con.rollback(); // Rollback the transaction if the listing deletion fails
             %>
-            <p>Deletion failed. Listing with ID <%= list_id %> was not found.</p>
-            <a href="listing.jsp">Go back to listing page</a>
+            <p>Deletion failed. Listing with ID <%= property_id %> was not found.</p>
+            <a href="admin.jsp">Go back to admin page</a>
             <%
         }
     } catch (SQLException ex) {

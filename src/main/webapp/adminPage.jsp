@@ -4,6 +4,51 @@
 <html>
   <head>
     <title>Admin Page</title>
+    <style>
+      body {
+        background-color: #f8bbd0; /* Set the background color to a light pink */
+      }
+
+      h1 {
+        color: #007bff; /* Set the heading color to a blue shade */
+      }
+
+      form {
+        margin-top: 20px;
+      }
+      /* Style the buttons */
+      .delete-button {
+        background-color: #e57373; /* Red background color for delete button */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .modify-button {
+        background-color: #81c784; /* Green background color for modify button */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .back-button {
+        background-color: #64b5f6; /* Blue background color for back button */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* Add some spacing between buttons */
+      form:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
     <h1>Welcome to the Admin Page</h1>
@@ -12,17 +57,17 @@
     // Retrieve adminid and Email from the session
     String adminid = (String) session.getAttribute("adminid");
     try {
-        String db = "shortterm_release";
+        String db = "lease";
         String user = "root";
         String password = "Sheep88517565";
         String login_sql = "SELECT first_name, last_name "
-                + "FROM shortterm_release.admin "
+                + "FROM lease.admin "
                 + "WHERE admin_id = ?";
 
                 
         // Establish database connection
         Class.forName("com.mysql.jdbc.Driver");
-        String connectionURL = "jdbc:mysql://localhost:3306/shortterm_release?autoReconnect=true&useSSL=false";
+        String connectionURL = "jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false";
         
         try (Connection con = DriverManager.getConnection(connectionURL, user, password);
              PreparedStatement stmt = con.prepareStatement(login_sql)) {
@@ -44,9 +89,11 @@
     }
     %>
     <h1> </h1>
-    <a href="delete_list_admin.jsp" target="_blank"><button type="button">delete listing</button></a><br/><br/>
-    <a href="modify_list_admin.jsp" target="_blank"><button type="button">modify listing</button></a><br/><br/>
-    <a href="admin.jsp" target="_blank"><button type="button">Back</button></a><br/><br/>
+    <button class="delete-button" onclick="window.open('delete_list_admin.jsp', '_blank')">Delete Listing</button><br/><br/>
+    <button class="modify-button" onclick="window.open('modify_list_admin.jsp', '_blank')">Modify Listing</button><br/><br/>
+    <button class="delete-button" onclick="window.open('delete_property_admin.jsp', '_blank')">Delete Property</button><br/><br/>
+    <button class="modify-button" onclick="window.open('modify_property_admin.jsp', '_blank')">Modify Property</button><br/><br/>
+    <button class="back-button" onclick="window.open('admin.jsp', '_blank')">Back</button><br/><br/>
 
   </body>
 </html>

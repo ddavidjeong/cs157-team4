@@ -1,7 +1,7 @@
 <%@ page import="java.sql.*" %>
 <html>
 <head>
-    <title>Listing Page</title>
+    <title>Property Page</title>
     <style>
       body {
         background-color: #f8bbd0; /* Set the background color to a light pink */
@@ -32,23 +32,36 @@
     </style>
 </head>
 <body>
-<h1> Listing Show below </h1>
+<h1> Property Show below </h1>
 
-<form method="post" action="deletesuccess.jsp">
-    <label for="listingid">listing id:</label>
-    <input type="number" id="listingid" name="listingid" required><br/><br/>
+<form method="post" action="modifysuccessproperty.jsp">
+    <label for="propertyid">property id:</label>
+    <input type="number" id="propertyid" name="propertyid" required><br/><br/>
+    
+    <label for="bd_count">bedroom count:</label>
+    <input type="number" id="bd_count" name="bd_count"><br/><br/>
+    
+    <label for="br_count">bathroom count:</label>
+    <input type="number" id="br_count" name="br_count"><br/><br/>
+    
+    <label for="type">type:</label>
+    <input type="text" id="type" name="type"><br/><br/>
+    
+    <label for="price">price:</label>
+    <input type="number" id="price" name="price"><br/><br/>
+    
 
-    <input type="submit" value="Delete">
+    <input type="submit" value="Modify">
 </form>
 
 <table border="1">
     <tr>
-        <td>Listing IDs</td>
         <td>Property IDS</td>
-        <td>start date</td>
-        <td>end date</td>
-        <td>max headcount</td>
-        <td>booking status</td>
+        <td>address_id</td>
+        <td>bedroom count</td>
+        <td>bathroom count</td>
+        <td>type</td>
+        <td>price</td>
     </tr>
     <%
     String db = "lease";
@@ -60,7 +73,7 @@
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false", user, password);
         Statement stmt = con.createStatement();
-        ResultSet listing = stmt.executeQuery("SELECT * FROM listings");
+        ResultSet listing = stmt.executeQuery("SELECT * FROM property");
 
         while (listing.next()) {
             out.println("<tr>" + "<td>" + listing.getInt(1) + "</td>" + "<td>" + listing.getString(2) + "</td>" + "<td>" + listing.getString(3) + "</td>"

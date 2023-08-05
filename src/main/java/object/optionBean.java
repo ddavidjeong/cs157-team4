@@ -13,6 +13,7 @@ public class optionBean {
 	private Double price;
 	private int listing_ID;
 	private String state;
+	private int property_id;
 	
 	public Integer getListing_ID() {
 		return listing_ID;
@@ -83,5 +84,12 @@ public class optionBean {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+	public int getproperty() {
+		return property_id;
+	}
+
+	public void setproperty(int property_id) {
+		this.property_id = property_id;
 	}
 }

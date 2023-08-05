@@ -8,10 +8,19 @@ public class orderBean {
 	private String tenant_id;
 	private String roomType;
 	private int numPeople;
-	private int price;
+	private double price;
 	private String state;
 	Date startDate = new Date();
 	Date endDate = new Date();
+	private int option = 0;
+	
+	public int getOption() {
+		return option;
+	}
+	
+	public void setOption(int option) {
+		this.option = option;
+	}
 	
 	public String getRoomType() {
 		return roomType;
@@ -33,11 +42,11 @@ public class orderBean {
 		return startDate;
 	}
 	
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	

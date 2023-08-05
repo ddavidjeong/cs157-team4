@@ -54,14 +54,13 @@
       </tr>
     <% 
         try {
-            String db = "lease";
             String user = "root";
             String password = "pass";
             String login_sql = "SELECT a.start_date, a.end_date, a.max_headcount, b.bd_count, b.br_count, b.price, c.state, a.listing_id "
                     + "FROM listings a "
                     + "LEFT JOIN property b ON a.property_id = b.property_id "
                     + "LEFT JOIN address c ON b.address_id = c.address_id "
-                    + "WHERE a.start_date >= ? AND a.end_date <= ? AND c.state = ? AND a.booking = 0";
+                    + "WHERE a.start_date >= ? AND a.end_date <= ? AND c.state = ? AND a.booking_status = 0";
             
             // Establish database connection
             Class.forName("com.mysql.jdbc.Driver");

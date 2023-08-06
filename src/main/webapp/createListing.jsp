@@ -1,18 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
 <%@ page import="java.sql.*"%>
-<%@ page import="object.userBean" %>
-<%@ page import="object.propertyBean" %>
-<% List<propertyBean> roomList = (List<propertyBean>)session.getAttribute("propertyOption"); %>
-<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<% String choice = request.getParameter("property");%>
-<% int num = Integer.parseInt(choice);%>
+<%@ page import="object.userBean"%>
+<%@ page import="object.propertyBean"%>
+<%
+List<propertyBean> roomList = (List<propertyBean>) session.getAttribute("propertyOption");
+%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String choice = request.getParameter("property");
+%>
+<%
+int num = Integer.parseInt(choice);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Creating new listing</title>
+<style>
+body {
+	background-color: #f8bbd0;
+	/* Set the background color to a light pink */
+}
+
+h2 {
+	color: #007bff; /* Set the heading color to a blue shade */
+}
+
+form {
+	margin-top: 20px;
+}
+
+/* Style the buttons */
+input[type="submit"] {
+	background-color: #4CAF50; /* Green background color for buttons */
+	color: white; /* White text color for buttons */
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+/* Add some spacing between buttons */
+form:not(:last-child) {
+	margin-bottom: 10px;
+}
+</style>
 </head>
 <body>
 	<%
@@ -42,7 +77,7 @@
 
 		try {
 			String createSql = "INSERT INTO listings (listing_id, property_id,  start_date, "
-				+ "end_date, max_headcount, booking_status) VALUES (?, ?, ?, ?, ?, ?)";
+			+ "end_date, max_headcount, booking_status) VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement stmt = con.prepareStatement(createSql, Statement.RETURN_GENERATED_KEYS);
 
 			String leaseSql = "INSERT INTO lease(landlord_id, listing_id) VALUES (?, ?)";
@@ -67,8 +102,8 @@
 
 			int rowsAffected = stmt.executeUpdate();
 			if (rowsAffected > 0) {
-				con.commit();
 				stmtLease.executeUpdate();
+				con.commit();
 			} else {
 				con.rollback();
 			}
@@ -87,19 +122,19 @@
 	<c:choose>
 		<c:when test="${affect > 0}">
 			<h2>Successfully created new listing</h2>
-			<p>
-				Go back to landlord page <a href="landlordPage.jsp"><button>back</button>
-				</a>
-			</p>
-			<p>
-				Go back to choosing role page <a href="tenant_or_landlord.jsp"><button>back</button>
-				</a>
-			</p>
+			<form action="landlordPage.jsp">
+				Back to landlord page <input type="submit" value="back">
+			</form>
+
+			<form action="tenant_or_landlord.jsp">
+				Go back to choosing role page <input type="submit" value="back">
+			</form>
 		</c:when>
 		<c:otherwise>
 			<h2>Error during process</h2>
-		Back to choosing room page
-		<a href="chooseProperty.jsp"><button>back</button></a>
+			<form action="propertyForUpdate.jsp">
+				Back to choosing property page <input type="submit" value="back">
+			</form>
 		</c:otherwise>
 	</c:choose>
 </body>

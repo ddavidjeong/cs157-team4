@@ -6,6 +6,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+body {
+	background-color: #f8bbd0; /* make backgroudn pink*/
+}
+
+h2 {
+	color: #007bff; /* Set the heading color to a blue shade */
+}
+
+/* Style the buttons */
+button {
+	background-color: #4CAF50; /* Green background color for buttons */
+	color: white; /* White text color for buttons */
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+</style>
 </head>
 <body>
 	<table border="1">

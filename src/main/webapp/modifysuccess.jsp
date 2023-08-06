@@ -46,10 +46,11 @@ String user = "root";
 String password = "Sheep88517565";
 //String cm1 = "UPDATE lease.listings SET property_id=? WHERE listing_id=?";
 //String cm2 = "UPDATE lease.listings SET landlord_id=? WHERE listing_id=?";
-String cm3 = "UPDATE lease.listings SET start_date=? WHERE listing_id=?";
-String cm4 = "UPDATE lease.listings SET end_date=? WHERE listing_id=?";
-String cm5 = "UPDATE lease.listings SET max_headcount=? WHERE listing_id=?";
-//String cm6 = "UPDATE lease.listings SET booking_status=? WHERE listing_id=?";
+String cm3 = "UPDATE lease.listings SET start_date=? WHERE listing_id=? AND booking_status=0";
+String cm4 = "UPDATE lease.listings SET end_date=? WHERE listing_id=? AND booking_status=0";
+String cm5 = "UPDATE lease.listings SET max_headcount=? WHERE listing_id=? AND booking_status=0";
+String cm6 = "INSERT INTO lease.updatelisting VALUES (?,?)";
+String adminid = (String) session.getAttribute("adminid");
 
 try {
     java.sql.Connection con;
@@ -97,6 +98,13 @@ try {
             <a href="listing.jsp">Go back to listing page</a>
             <%
         }
+        
+        PreparedStatement pstmtupdatelist = con.prepareStatement(cm6);
+        pstmtupdatelist.setInt(1, Integer.parseInt(adminid));
+        pstmtupdatelist.setInt(2, Integer.parseInt(list_id));
+    	rowsAffected=pstmtupdatelist.executeUpdate();
+    	pstmtupdatelist.close();
+        
     } catch (SQLException ex) {
         con.rollback(); // Rollback the transaction if any SQL exception occurs
         throw ex; // Rethrow the exception to handle it in the outer catch block

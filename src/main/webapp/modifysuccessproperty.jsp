@@ -41,6 +41,8 @@ String br_count = request.getParameter("br_count");
 String type = request.getParameter("type");
 String price = request.getParameter("price");
 
+String adminid = (String) session.getAttribute("adminid");
+
 
 String db = "lease";
 String user = "root";
@@ -50,7 +52,7 @@ String cm2 = "UPDATE lease.property SET br_count=? WHERE property_id=?";
 String cm3 = "UPDATE lease.property SET type=? WHERE property_id=?";
 String cm4 = "UPDATE lease.property SET price=? WHERE property_id=?";
 //String cm5 = "UPDATE lease.listings SET max_headcount=? WHERE listing_id=?";
-//String cm6 = "UPDATE lease.listings SET booking_status=? WHERE listing_id=?";
+String cm6 = "INSERT INTO lease.updateproperty (admin_id,property_id) VALUES (?,?)";
 
 try {
     java.sql.Connection con;
@@ -61,7 +63,6 @@ try {
     
     try {
         
-        
         if(!bd_count.equals("")){
         	PreparedStatement pstmtbd_count = con.prepareStatement(cm1);
         	pstmtbd_count.setInt(1, Integer.parseInt(bd_count));
@@ -71,7 +72,7 @@ try {
         }
         if(!br_count.equals("")){
         	PreparedStatement pstmtbr_count = con.prepareStatement(cm2);
-        	pstmtbr_count.setInt(1, Integer.parseInt(br_count));
+        	pstmtbr_count.setInt(1, Integer.parseInt(bd_count));
         	pstmtbr_count.setInt(2, Integer.parseInt(property_id));
         	rowsAffected=pstmtbr_count.executeUpdate();
         	pstmtbr_count.close();
@@ -105,6 +106,12 @@ try {
             <a href="admin.jsp">Go back to admin page</a>
             <%
         }
+        PreparedStatement pstmtupdateproperty = con.prepareStatement(cm6);
+        pstmtupdateproperty.setInt(1, Integer.parseInt(adminid));
+        pstmtupdateproperty.setInt(2, Integer.parseInt(property_id));
+    	rowsAffected=pstmtupdateproperty.executeUpdate();
+    	pstmtupdateproperty.close();
+        
     } catch (SQLException ex) {
         con.rollback(); // Rollback the transaction if any SQL exception occurs
         throw ex; // Rethrow the exception to handle it in the outer catch block

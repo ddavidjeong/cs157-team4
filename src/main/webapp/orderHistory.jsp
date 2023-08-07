@@ -12,7 +12,7 @@
 <body>
 <h1>Order History</h1>
 
-	<table border="1">
+		<table border="1">
       <tr>
       	<td>Order ID</td>
         <td>Start Date</td>
@@ -20,12 +20,13 @@
         <td>Room type</td>
         <td>Number of people</td>
         <td>Price per night</td>
+        <td>Pay Status</td>
       </tr>
 
 <% 
         try {
             String user = "root";
-            String password = "pass";
+            String password = "Hazuki_0824";
             String order_sql = "select * from orders "
             		+ "join listings using (listing_id) "
     				+ "join property using (property_id) " 
@@ -49,7 +50,13 @@
         				+ "<td>" + rs.getDate("end_date") + "</td>"
         				+ "<td>" + rs.getString("type") + "</td>"
         				+ "<td>" + rs.getInt("max_headcount") + "</td>"
-        				+ "<td>" + rs.getInt("price") + "</td>");
+        				+ "<td>" + rs.getInt("price"));
+        				if(rs.getInt("pay_status") == 0){
+        					out.println("<td>" + "Not yet" + "</td>" + "</tr>");
+        				}
+        				else {
+        					out.println("<td>" + "Paid" + "</td>" + "</tr>");
+        				}
         			
         			}
                 }

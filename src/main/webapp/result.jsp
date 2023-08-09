@@ -34,7 +34,7 @@
 
       /* Add some spacing between buttons */
       form:not(:last-child) {
-        margin-bottom: 10px;
+        margin-bottom: 80px;
       }
     </style>
 </head>
@@ -83,20 +83,13 @@
       </tr>
     <% 
         try {
+            String db = "lease";
             String user = "root";
-<<<<<<< HEAD
             String password = "Sheep88517565";
             String login_sql = "SELECT a.start_date, a.end_date, a.max_headcount, b.bd_count, b.br_count, b.price, c.state, a.listing_id,b.property_id "
                     + "FROM lease.listings a "
                     + "LEFT JOIN lease.property b ON a.property_id = b.property_id "
                     + "LEFT JOIN lease.address c ON b.address_id = c.address_id "
-=======
-            String password = "pass";
-            String login_sql = "SELECT a.start_date, a.end_date, a.max_headcount, b.bd_count, b.br_count, b.price, c.state, a.listing_id "
-                    + "FROM listings a "
-                    + "LEFT JOIN property b ON a.property_id = b.property_id "
-                    + "LEFT JOIN address c ON b.address_id = c.address_id "
->>>>>>> b5cf4daba5594180c2ef3185e895258c2ac66af7
                     + "WHERE a.start_date >= ? AND a.end_date <= ? AND c.state = ? AND a.booking_status = 0";
             
             // Establish database connection
@@ -168,6 +161,11 @@
     </select>
         <br/><br/>
     <input type="submit" value="Submit" />
+    </form>
+    
+    
+    <form action="search.jsp">
+      <input type="submit" value="back">
     </form>
 </body>
 </html>

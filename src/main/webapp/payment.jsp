@@ -12,6 +12,34 @@ List<orderBean> orderList = (List<orderBean>) session.getAttribute("orderOption"
 <html>
 <head>
     <title>Payment Page</title>
+    <style>
+      body {
+        background-color: #f8bbd0; /* Set the background color to a light pink */
+      }
+
+      h1 {
+        color: #007bff; /* Set the heading color to a blue shade */
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      /* Style the buttons */
+      input[type="submit"] {
+        background-color: #4CAF50; /* Green background color for buttons */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* Add some spacing between buttons */
+      form:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    </style>
 </head>
 <body>
 	<h1>Payment Confirmation</h1>
@@ -29,7 +57,7 @@ List<orderBean> orderList = (List<orderBean>) session.getAttribute("orderOption"
 		}
 		
 		String user = "root";
-		String password = "pass";
+		String password = "Sheep88517565";
 		
         try {
     		java.sql.Connection con;

@@ -16,15 +16,6 @@
       }
 
       /* Style the buttons */
-      button {
-        background-color: #4CAF50; /* Green background color for buttons */
-        color: white; /* White text color for buttons */
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-      
       input[type="submit"] {
         background-color: #4CAF50; /* Green background color for buttons */
         color: white; /* White text color for buttons */
@@ -41,28 +32,29 @@
     </style>
   </head>
   <body>
-   <div style="text-align: center">
+    <div style="text-align: center">
     <h1>Please choose the role you want: Tenant or Landlord</h1>
- 
+    
+    <% 
+      out.println("If you are Tenant, Please click Tenant Button<br/><br/>");
+    %>
     <form action="search.jsp">
-    If you are Tenant, Please click Tenant Button
       <input type="submit" value="Tenant">
     </form>
     
+    <% 
+      out.println("If you are Landlord, please click Landlord Button<br/><br/>");
+    %>
     <form action="landlordPage.jsp">
-    If you are Landlord, please click Landlord Button
       <input type="submit" value="Landlord">
     </form>
 
-	<form action="profile.jsp">
-	you can check your profile here
-		<input type="submit" value="profile page">
-	</form>
-    
+    <p>you can check your profile here
+    <a href="profile.jsp"><button>Profile page</button> </a>
+    </p>
+
     <p>Logout
     <a href="MainPage.jsp"><button>logout</button> </a>
     </p>
-   </div>
   </body>
 </html>
-

@@ -11,10 +11,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Modify/Update property</title>
-	<style>
-		tr:nth-child(even) {background-color: #f2f2f2;}
-	</style>
+<title>Modify/Update property</title>
+<style>
+      body {
+        background-color: #f8bbd0; /* Set the background color to a light pink */
+      }
+
+      h1 {
+        color: #007bff; /* Set the heading color to a blue shade */
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      /* Style the buttons */
+      input[type="submit"] {
+        background-color: #4CAF50; /* Green background color for buttons */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* Add some spacing between buttons */
+      form:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    </style>
 </head>
 <body>
 	<h2>Modify/Update property</h2>
@@ -49,7 +74,7 @@
  	<% 
         try {
             String user = "root";
-            String password = "Hazuki_0824";
+            String password = "Sheep88517565";
             String login_sql = "SELECT * FROM property join own using (property_id) " 
             		+ "join address using (address_id) WHERE landlord_id = ?";
             

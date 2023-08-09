@@ -89,9 +89,8 @@
     }
     %>
     <h1> </h1>
-    <button class="delete-button" onclick="window.open('delete_list_admin.jsp', '_blank')">Delete Listing</button><br/><br/>
+    
     <button class="modify-button" onclick="window.open('modify_list_admin.jsp', '_blank')">Modify Listing</button><br/><br/>
-    <button class="delete-button" onclick="window.open('delete_property_admin.jsp', '_blank')">Delete Property</button><br/><br/>
     <button class="modify-button" onclick="window.open('modify_property_admin.jsp', '_blank')">Modify Property</button><br/><br/>
     <button class="back-button" onclick="window.open('admin.jsp', '_blank')">Back</button><br/><br/>
 

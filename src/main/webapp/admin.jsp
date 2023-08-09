@@ -4,6 +4,34 @@
 <html>
   <head>
     <title>Admin Login</title>
+    <style>
+      body {
+        background-color: #f8bbd0; /* Set the background color to a light pink */
+      }
+
+      h1 {
+        color: #007bff; /* Set the heading color to a blue shade */
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      /* Style the buttons */
+      input[type="submit"] {
+        background-color: #4CAF50; /* Green background color for buttons */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* Add some spacing between buttons */
+      form:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
     <h1>This is the Login Page for Admin</h1>
@@ -21,18 +49,18 @@
     String adminid = request.getParameter("adminid");
     String Email = request.getParameter("Email");
         try {
-            String db = "shortterm_release";
+            String db = "lease";
             String user = "root";
             String password = "Sheep88517565";
             String login_sql = "SELECT a.admin_id, b.email_address "
-                    + "FROM shortterm_release.admin a "
-                    + "LEFT JOIN shortterm_release.users b ON a.user_id = b.user_id "
+                    + "FROM lease.admin a "
+                    + "LEFT JOIN lease.users b ON a.user_id = b.user_id "
                     + "WHERE a.admin_id = ? AND b.email_address = ?";
 
                     
             // Establish database connection
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/shortterm_release?autoReconnect=true&useSSL=false";
+            String connectionURL = "jdbc:mysql://localhost:3306/lease?autoReconnect=true&useSSL=false";
             
             try (Connection con = DriverManager.getConnection(connectionURL, user, password);
                  PreparedStatement stmt = con.prepareStatement(login_sql)) {

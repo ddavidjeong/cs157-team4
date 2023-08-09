@@ -1,7 +1,6 @@
 <%@ page import="java.sql.*" %>
 <html>
 <head>
-    <title>Modify Success</title>
     <style>
       body {
         background-color: #f8bbd0; /* Set the background color to a light pink */

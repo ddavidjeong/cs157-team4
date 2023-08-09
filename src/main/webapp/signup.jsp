@@ -32,6 +32,7 @@
    </head>
   <body>
     <div style="text-align: center">
+    <h1>Register</h1>
     <form method="post" action="checkUser.jsp">
       <label for="userid">userid:</label>
       <input type="number" id="userid" name="userid" required><br/><br/>

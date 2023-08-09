@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Identify user ID or email address</title>
-<head>
-    <style>
+<title>Choose adding property or creating listing</title>
+<style>
       body {
         background-color: #f8bbd0; /* Set the background color to a light pink */
       }
@@ -35,19 +34,14 @@
       }
     </style>
 </head>
-
-</head>
 <body>
-	<h2>Check your user ID or email address</h2>
-	<form method="post" action="getUserInfo.jsp">
-      First Name:
-      <input type="text" id="firstName" name="firstName" required><br/><br/>
-      
-      Last Name:
-      <input type="text" id="lastName" name="lastName" required><br/><br/>
-      
-      <input type="submit" value="submit">
-    </form>
-
+	<h2>Select your action</h2>	
+		<p>Add new property
+    		<a href="add_property.jsp"><button>add</button> </a>
+    	</p>
+    	
+		<p>Create new listing
+    		<a href="chooseProperty.jsp"><button>create</button> </a>
+    	</p>
 </body>
 </html>

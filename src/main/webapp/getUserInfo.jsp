@@ -6,26 +6,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-body {
-	background-color: #f8bbd0; /* make backgroudn pink*/
-}
+<head>
+    <style>
+      body {
+        background-color: #f8bbd0; /* Set the background color to a light pink */
+      }
 
-h2 {
-	color: #007bff; /* Set the heading color to a blue shade */
-}
+      h1 {
+        color: #007bff; /* Set the heading color to a blue shade */
+      }
 
-/* Style the buttons */
-button {
-	background-color: #4CAF50; /* Green background color for buttons */
-	color: white; /* White text color for buttons */
-	padding: 10px 20px;
-	border: none;
-	cursor: pointer;
-	border-radius: 5px;
-}
+      form {
+        margin-top: 20px;
+      }
 
-</style>
+      /* Style the buttons */
+      input[type="submit"] {
+        background-color: #4CAF50; /* Green background color for buttons */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* Add some spacing between buttons */
+      form:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
 </head>
 <body>
 	<table border="1">
@@ -42,7 +53,7 @@ button {
       String lastName = request.getParameter("lastName");
 
       String user = "root";
-      String password = "Hazuki_0824";
+      String password = "Sheep88517565";
     	
       
       try {

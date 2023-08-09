@@ -32,10 +32,11 @@
     </style>
   </head>
   <body>
+    <div style="text-align: center">
     <h1>Welcome to Short_Term_Leasing System</h1>
     
     <% 
-      String db = "Short_Term_Leasing";
+      String db = "lease";
       out.println("If you are using this system for the first time, please click Sign Up.<br/><br/>");
     %>
     <form action="signup.jsp">

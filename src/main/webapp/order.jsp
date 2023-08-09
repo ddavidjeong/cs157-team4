@@ -45,6 +45,7 @@
     </style>
 </head>
 <body>
+<div style="text-align: center">
 <h1>Are you booking this room?</h1>
 
 <table border="1">

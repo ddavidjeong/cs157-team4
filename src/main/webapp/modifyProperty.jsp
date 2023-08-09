@@ -35,6 +35,15 @@
         border-radius: 5px;
       }
 
+      button {
+        background-color: #4CAF50; /* Green background color for buttons */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
       /* Add some spacing between buttons */
       form:not(:last-child) {
         margin-bottom: 10px;

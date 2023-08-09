@@ -19,6 +19,15 @@
         color: #007bff; /* Set the heading color to a blue shade */
       }
 
+      button {
+        background-color: #4CAF50; /* Green background color for buttons */
+        color: white; /* White text color for buttons */
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
       form {
         margin-top: 20px;
       }
